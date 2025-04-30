@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - VOIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 70px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #562f91;
+      margin-bottom: 30px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-group {
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: #7f3ac1;
+      outline: none;
+    }
+
+    .login-btn {
+      padding: 12px;
+      background-color: #7f3ac1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #fbbf24;
+      color: #333;
+    }
+
+    .forgot-password {
+      margin-top: 10px;
+    }
+
+    .forgot-password a {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .forgot-password a:hover {
+      color: #7f3ac1;
+    }
+
+    .signup-prompt {
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    .signup-prompt a {
+      color: #7f3ac1;
+      font-weight: bold;
+    }
+
+    .signup-prompt a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <img src="voia logo.jpg" alt="VOIA Logo" class="login-logo">
+    <h1>Login to VOIA</h1>
+
+    <form class="login-form">
+      
+      <div class="input-group">
+        <label for="role">Login as:</label>
+        <select id="role" name="role" required>
+          <option value="">Select role</option>
+          <option value="user">User</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="forgot-password">
+      <a href="#">Forgot your password?</a>
+    </div>
+
+    <div class="signup-prompt">
+      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

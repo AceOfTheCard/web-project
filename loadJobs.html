@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jobs - VOIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      padding: 40px;
+    }
+
+    .job-list {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .job-card {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .load-more {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: #7f3ac1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .load-more:hover {
+      background-color: #fbbf24;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="job-list" id="jobList">
+    <div class="job-card">Frontend Developer (Remote)</div>
+    <div class="job-card">Customer Support Agent</div>
+    <div class="job-card">Data Entry Assistant</div>
+  </div>
+
+  <button class="load-more" onclick="loadMoreJobs()">Load More Jobs</button>
+
+  <script>
+    const moreJobs = [
+      "Marketing Specialist",
+      "UX/UI Designer",
+      "Backend Developer",
+      "IT Help Desk",
+      "SEO Content Writer"
+    ];
+
+    let index = 0;
+
+    function loadMoreJobs() {
+      const jobList = document.getElementById('jobList');
+      const jobsToShow = 2; // Load 2 jobs at a time
+
+      for (let i = 0; i < jobsToShow; i++) {
+        if (index >= moreJobs.length) {
+          document.querySelector('.load-more').style.display = 'none';
+          break;
+        }
+
+        const jobDiv = document.createElement('div');
+        jobDiv.className = 'job-card';
+        jobDiv.textContent = moreJobs[index];
+        jobList.appendChild(jobDiv);
+        index++;
+      }
+    }
+  </script>
+
+</body>
+</html>

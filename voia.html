@@ -1,0 +1,288 @@
+<!-- 
+/project-directory
+  /images
+    - logo.jpg
+  /css
+    - styles.css
+  - index.html
+  - login.html
+  - signup.html
+  - premium.html
+  - volunteer.html
+  - donate.html
+  - training.html
+  - job-opportunities.html
+  - thank-you.html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOIA - Empower Ability, Connect Opportunity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./donate.html">
+  <link rel="stylesheet" href="./volunteer.html">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #4d6bcb;
+      color: #fff;
+    }
+    header img {
+      height: 60px;
+      margin-right: 15px;
+    }
+    header h1 {
+      font-size: 28px;
+    }
+    nav a {
+      margin-left: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      padding: 80px 20px;
+    }
+    .center {
+      text-align: center;
+    }
+    .hero {
+      background: linear-gradient(to right, #4d6bcb, #76a9f7);
+      padding: 120px 20px;
+      color: #fff;
+    }
+    .hero h2 {
+      font-size: 48px;
+      font-weight: 700;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 18px;
+    }
+    .btn {
+      display: inline-block;
+      background: #ffd700;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-top: 30px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #4d6bcb;
+    }
+    .gray-bg {
+      background: #f0f4f8;
+    }
+    .card {
+      border-radius: 16px;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h4 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #222;
+    }
+    .card p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: 40px 0;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #888;
+      background: #4d6bcb;
+      border-top: 1px solid #fff;
+    }
+    .testimonial {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      margin: 20px auto;
+      max-width: 700px;
+      text-align: left;
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 17px;
+      color: #444;
+    }
+    .testimonial .name {
+      margin-top: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+    .load-more {
+      text-align: center;
+      margin: 40px 0;
+    }
+  </style>
+  <script>
+    function showDonatePage() {
+      window.location.href = "donate.html";
+    }
+
+    function showVolunteerPage() {
+      window.location.href = "volunteer.html";
+    }
+
+    function loadMore() {
+      // This function simulates loading more job opportunities or training programs.
+      alert("More opportunities will be displayed here soon!");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+      <img src="./voia logo.jpg" alt="VOIA Logo" />
+      <h1>VOIA</h1>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#trainings">Trainings</a>
+      <a href="#support">Support</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero center">
+    <h2>Empower Ability. Connect Opportunity.</h2>
+    <p>VOIA helps people with different abilities gain access to training and job opportunities by connecting them with inclusive employers and skill programs.</p>
+    <a href="#contact" class="btn">Join Now</a>
+  </section>
+
+  <section id="about" class="gray-bg center">
+    <h3>About VOIA</h3>
+    <p>VOIA is a platform dedicated to empowering individuals with disabilities by providing them with real employment and training opportunities. We believe in inclusivity, potential, and the power of technology to bridge gaps in the labor market.</p>
+  </section>
+
+  <section id="jobs">
+    <h3 class="center">Job Opportunities</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Data Entry Assistant (Remote)</h4>
+        <p>Help businesses with basic data entry tasks from the comfort of your home.</p>
+        <a href="#contact" class="btn">Apply Now</a>
+      </div>
+      <div class="card">
+        <h4>Customer Service Representative</h4>
+        <p>Provide remote customer support through emails and calls, helping clients solve issues.</p>
+        <a href="#contact" class="btn">Apply Now</a>
+      </div>
+      <div class="card">
+        <h4>Online Tutor</h4>
+        <p>Teach students in subjects such as Math, English, and Science remotely.</p>
+        <a href="#contact" class="btn">Apply Now</a>
+      </div>
+      <div class="card">
+        <h4>Social Media Assistant</h4>
+        <p>Assist companies in managing their social media presence by scheduling posts and responding to messages.</p>
+        <a href="#contact" class="btn">Apply Now</a>
+      </div>
+    </div>
+    <div class="load-more">
+      <button class="btn" onclick="loadMore()">Load More</button>
+    </div>
+  </section>
+
+  <section id="trainings" class="gray-bg">
+    <h3 class="center">Training Programs</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Intro to Web Development</h4>
+        <p>Learn the basics of HTML, CSS, and JavaScript in this beginner-friendly course.</p>
+        <a href="#contact" class="btn">Register</a>
+      </div>
+      <div class="card">
+        <h4>Soft Skills for the Workplace</h4>
+        <p>Build communication, teamwork, and problem-solving skills to thrive at work.</p>
+        <a href="#contact" class="btn">Register</a>
+      </div>
+    </div>
+    <div class="load-more">
+      <button class="btn" onclick="loadMore()">Load More</button>
+    </div>
+  </section>
+
+  <section id="support">
+    <h3 class="center">Support VOIA</h3>
+    <p class="center">Join our mission by donating or volunteering. Your contribution helps create a more inclusive world.</p>
+    <div class="center">
+      <button onclick="showDonatePage()" class="btn">Donate</button>
+      <button onclick="showVolunteerPage()" class="btn" style="background: transparent; color: #4d6bcb; border: 2px solid #4d6bcb;">Become a Volunteer</button>
+    </div>
+  </section>
+
+  <section id="contact" class="gray-bg">
+    <h3 class="center">Contact Us</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+    </form>
+    <div class="center" style="margin-top: 20px;">
+      <p>Email: contact@voia.org</p>
+      <p>Phone: +355 69 000 0000</p>
+      <p>Location: Tirana, Albania</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 VOIA. All rights reserved.</p>
+  </footer>
+</body>
+</html> -->

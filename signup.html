@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - VOIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f5f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .signup-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #562f91;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .plan-section {
+      margin-top: 30px;
+    }
+
+    .plan-options {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .plan-card {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .plan-card:hover,
+    .plan-card.selected {
+      border-color: #7f3ac1;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .plan-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #1e3a8a;
+    }
+
+    .plan-description {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .signup-btn {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      background-color: #7f3ac1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .signup-btn:hover {
+      background-color: #fbbf24;
+      color: #333;
+    }
+
+    #userFields, #businessFields {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h1>Sign Up to VOIA</h1>
+
+    <form id="signup-form">
+      
+      <div class="input-group">
+        <label for="role">Register as:</label>
+        <select id="role" name="role" required onchange="toggleRoleFields()">
+          <option value="">Select your role</option>
+          <option value="user">User</option>
+          <option value="business">Business</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" required placeholder="Enter your full name">
+      </div>
+
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required placeholder="Choose a username">
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required placeholder="Enter your email">
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="Create a password">
+      </div>
+
+      <!-- Additional fields for Users -->
+      <div id="userFields">
+        <div class="input-group">
+          <label for="interests">Field of Interest</label>
+          <input type="text" id="interests" placeholder="e.g., Web Development, Graphic Design">
+        </div>
+
+        <div class="input-group">
+          <label for="skills">Key Skills</label>
+          <input type="text" id="skills" placeholder="e.g., Photoshop, JavaScript, Communication">
+        </div>
+      </div>
+
+      <!-- Additional fields for Businesses -->
+      <div id="businessFields">
+        <div class="input-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" placeholder="Enter your company name">
+        </div>
+
+        <div class="input-group">
+          <label for="companyWebsite">Company Website</label>
+          <input type="url" id="companyWebsite" placeholder="https://yourcompany.com">
+        </div>
+
+        <div class="input-group">
+          <label for="companySize">Company Size</label>
+          <input type="text" id="companySize" placeholder="e.g., 10-50 employees">
+        </div>
+      </div>
+
+      <div class="plan-section">
+        <label style="font-weight: bold; font-size: 1.1rem;">Choose Your Plan</label>
+        <div class="plan-options">
+          <div class="plan-card" onclick="selectPlan('free')">
+            <div class="plan-title">Free Plan</div>
+            <p class="plan-description">Basic access to opportunities and features.</p>
+          </div>
+          <div class="plan-card" onclick="selectPlan('premium')">
+            <div class="plan-title">Premium Plan (5$)</div>
+            <p class="plan-description">Advanced features, training, and personalized support.</p>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" id="selectedPlan" name="plan">
+
+      <button type="submit" class="signup-btn">Create Account</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleRoleFields() {
+      const role = document.getElementById('role').value;
+      document.getElementById('userFields').style.display = role === 'user' ? 'block' : 'none';
+      document.getElementById('businessFields').style.display = role === 'business' ? 'block' : 'none';
+    }
+
+    function selectPlan(plan) {
+      document.getElementById('selectedPlan').value = plan;
+      document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('selected'));
+      const selectedCard = [...document.querySelectorAll('.plan-card')].find(c => c.textContent.includes(plan === 'free' ? 'Free' : 'Premium'));
+      if (selectedCard) selectedCard.classList.add('selected');
+    }
+  </script>
+
+</body>
+</html>

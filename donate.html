@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate - VOIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 30px;
+    }
+
+    .donate-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #7f3ac1;
+      margin-bottom: 20px;
+    }
+
+    p.description {
+      text-align: center;
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .amount-options {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .amount-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 12px;
+      background-color: #ede9f5;
+      color: #1e3a8a;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .amount-btn:hover,
+    .amount-btn.selected {
+      background-color: #7f3ac1;
+      color: white;
+      border-color: #7f3ac1;
+    }
+
+    .donate-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #1e3a8a;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .donate-btn:hover {
+      background-color: #fbbf24;
+      color: #333;
+    }
+
+    .payment-methods {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .payment-option {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .payment-option:hover,
+    .payment-option.selected {
+      border-color: #7f3ac1;
+      background-color: #ede9f5;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="donate-container">
+    <h1>Support Our Mission</h1>
+    <p class="description">Help us empower people with different abilities through opportunities and skills. Every contribution counts!</p>
+
+    <form id="donation-form">
+      <div class="input-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required placeholder="Your name">
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+      </div>
+
+      <div class="input-group">
+        <label for="amount">Donation Amount</label>
+        <div class="amount-options">
+          <div class="amount-btn" onclick="selectAmount(5)">$5</div>
+          <div class="amount-btn" onclick="selectAmount(10)">$10</div>
+          <div class="amount-btn" onclick="selectAmount(25)">$25</div>
+          <div class="amount-btn" onclick="selectAmount(50)">$50</div>
+          <div class="amount-btn" onclick="selectAmount('custom')">Other</div>
+        </div>
+        <input type="number" id="custom-amount" placeholder="Enter custom amount" style="margin-top: 10px; display: none;">
+      </div>
+
+      <div class="input-group">
+        <label>Payment Method</label>
+        <div class="payment-methods">
+          <div class="payment-option" onclick="selectPayment('card')">Credit Card</div>
+          <div class="payment-option" onclick="selectPayment('paypal')">PayPal</div>
+        </div>
+      </div>
+
+      <button type="submit" class="donate-btn">Donate Now</button>
+    </form>
+  </div>
+
+  <script>
+    let selectedAmount = null;
+    let selectedPayment = null;
+
+    function selectAmount(amount) {
+      document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+      if (amount === 'custom') {
+        document.getElementById('custom-amount').style.display = 'block';
+        selectedAmount = null;
+      } else {
+        document.getElementById('custom-amount').style.display = 'none';
+        selectedAmount = amount;
+        document.querySelectorAll('.amount-btn').forEach(btn => {
+          if (btn.textContent.includes(`$${amount}`)) {
+            btn.classList.add('selected');
+          }
+        });
+      }
+    }
+
+    function selectPayment(method) {
+      selectedPayment = method;
+      document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+      document.querySelectorAll('.payment-option').forEach(opt => {
+        if (opt.textContent.toLowerCase().includes(method)) {
+          opt.classList.add('selected');
+        }
+      });
+    }
+
+    document.getElementById('donation-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const custom = document.getElementById('custom-amount');
+      const amount = selectedAmount || parseFloat(custom.value);
+
+      if (!amount || amount <= 0) {
+        alert("Please enter or select a valid donation amount.");
+        return;
+      }
+
+      if (!selectedPayment) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      alert(`Thank you for your donation of $${amount.toFixed(2)} via ${selectedPayment === 'card' ? 'Credit Card' : 'PayPal'}!`);
+      // Këtu mund të shtosh kod për Stripe/PayPal ose dërgim të të dhënave te serveri
+    });
+  </script>
+
+</body>
+</html>

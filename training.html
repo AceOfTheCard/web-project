@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Training Sessions - VOIA</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      padding: 40px;
+    }
+
+    .training-list {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .training-card {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .load-more {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: #7f3ac1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .load-more:hover {
+      background-color: #fbbf24;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="training-list" id="trainingList">
+    <div class="training-card">Java Programming Basics</div>
+    <div class="training-card">Data Analysis with R</div>
+    <div class="training-card">Introduction to Web Development</div>
+  </div>
+
+  <button class="load-more" onclick="loadMoreTrainings()">Load More Trainings</button>
+
+  <script>
+    const moreTrainings = [
+      "Full Stack Development Bootcamp",
+      "Digital Marketing Strategy",
+      "UX/UI Design Fundamentals",
+      "Cloud Computing with AWS",
+      "Advanced Python Programming"
+    ];
+
+    let index = 0;
+
+    function loadMoreTrainings() {
+      const trainingList = document.getElementById('trainingList');
+      const trainingsToShow = 2; // Load 2 trainings at a time
+
+      for (let i = 0; i < trainingsToShow; i++) {
+        if (index >= moreTrainings.length) {
+          document.querySelector('.load-more').style.display = 'none';
+          break;
+        }
+
+        const trainingDiv = document.createElement('div');
+        trainingDiv.className = 'training-card';
+        trainingDiv.textContent = moreTrainings[index];
+        trainingList.appendChild(trainingDiv);
+        index++;
+      }
+    }
+  </script>
+
+</body>
+</html>
